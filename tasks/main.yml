@@ -31,3 +31,4 @@
   service:
     name: sslh
     enabled: yes
+    state: started
