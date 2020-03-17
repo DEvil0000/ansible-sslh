@@ -7,8 +7,8 @@
   when: ansible_os_family == 'Archlinux'
 
 - name: Update /etc/default/sslh
-  copy:
-    src: default-sslh
+  template:
+    src: default-sslh.j2
     dest: /etc/default/sslh
     owner: root
     group: root
