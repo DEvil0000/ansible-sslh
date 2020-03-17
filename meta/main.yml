@@ -3,7 +3,7 @@ galaxy_info:
   author: "Vincent Demeester"
   description: An Ansible role for install and configure sslh.
   license: GPLv3
-  version: 0.1
+  version: 0.2
   min_ansible_version: 1.4
   platforms:
     - name: Ubuntu
