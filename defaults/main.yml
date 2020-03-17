@@ -7,3 +7,6 @@ sslh:
   transparent: false
   timeout: 2
   on-timeout: ssh
+  listen:
+    - host: "{{ ansible_default_ipv4.address }}"
+      port: 443
