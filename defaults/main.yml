@@ -4,4 +4,6 @@ sslh:
   foreground: false
   inetd: false
   numeric: false
+  transparent: false
   timeout: 2
+  on-timeout: ssh
