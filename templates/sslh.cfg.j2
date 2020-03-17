@@ -1,16 +1,16 @@
 # {{ ansible_managed }}
 # List of general options
-verbose: {{ sslh.verbose }};
-foreground: {{ sslh.foreground }};
-inetd: {{ sslh.inetd }};
-numeric: {{ sslh.numeric }};
-transparent: {{ sslh.transparent }};
-timeout: {{ sslh.timeout }};
+verbose: {{ sslh_verbose }};
+foreground: {{ sslh_foreground }};
+inetd: {{ sslh_inetd }};
+numeric: {{ sslh_numeric }};
+transparent: {{ sslh_transparent }};
+timeout: {{ sslh_timeout }};
 
 # List of interfaces
 listen:
 (
-{% for listen in sslh.listen %}
+{% for listen in sslh_listen %}
    { host: "{{ listen.host }}"; port: "{{ listen.port }}" }
 {% endfor %}
 );
@@ -18,12 +18,12 @@ listen:
 # List of protocols
 protocols:
 (
-{% for service in sslh.protocols %}
-   { name: "{{ service.name }}", {% if service.service %}service: "{{ service.service }}", {% endif %} host: "{{ service.host }}", port: "{{ service.port }}"{% if service.probe %}, probe: {{ service.probe }} {% endif %} }{% if not loop.last %},{% endif %}
+{% for service in sslh_protocols %}
+   { name: "{{ service.name }}", {% if service.service %}service: "{{ service.service }}", {% endif %} host: "{{ service.host }}", port: "{{ service.port }}"{% if service.probe is defined %}, probe: {{ service.probe }} {% endif %} }{% if not loop.last %},{% endif %}
    
 {% endfor %}
 );
 
-{% if sslh.ontimeout %}
-on-timeout: "{{ sslh.ontimeout }}"
+{% if sslh_ontimeout %}
+on-timeout: "{{ sslh_ontimeout }}"
 {% endif %}

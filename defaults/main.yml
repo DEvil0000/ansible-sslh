@@ -1,12 +1,11 @@
 ---
-sslh:
-  verbose: false
-  foreground: false
-  inetd: false
-  numeric: false
-  transparent: false
-  timeout: 2
-  on-timeout: ssh
-  listen:
-    - host: "{{ ansible_default_ipv4.address }}"
-      port: 443
+sslh_verbose: false
+sslh_foreground: false
+sslh_inetd: false
+sslh_numeric: false
+sslh_transparent: false
+sslh_timeout: 2
+sslh_ontimeout: ssh
+sslh_listen:
+  - host: "{{ ansible_default_ipv4.address }}"
+    port: 443
