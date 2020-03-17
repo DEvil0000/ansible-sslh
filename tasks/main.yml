@@ -14,6 +14,7 @@
     group: root
     mode: 644
     backup: yes
+  notify: reload sslh
   
 - name: Configured
   template:
@@ -25,3 +26,8 @@
   notify: reload sslh
   tags:
     sslh
+
+- name: enable sslh service
+  service:
+    name: sslh
+    enabled: yes
